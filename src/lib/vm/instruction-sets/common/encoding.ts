@@ -86,8 +86,8 @@ const isValidInteger = (
 // eslint-disable-next-line complexity
 export const isValidSignatureEncodingDER = (signature: Uint8Array) => {
   const correctLengthRange =
-    signature.length > DER.minimumLength &&
-    signature.length < DER.maximumLength;
+    signature.length >= DER.minimumLength &&
+    signature.length <= DER.maximumLength;
   const correctSequenceTagType =
     signature[DER.sequenceTagIndex] === ASN1.sequenceTagType;
   const correctSequenceLength =
